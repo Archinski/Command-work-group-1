@@ -4,6 +4,6 @@ import com.example.bank.dto.RecommendationResponse;
 
 import java.util.Optional;
 
-public interface RecommendationRuleSet {
+public interface RecommendationRuleSet{
     Optional<RecommendationResponse.Recommendation> apply(String userId);
 }

@@ -23,7 +23,7 @@ public class RecommendationResponse {
         this.recommendations = recommendations;
     }
 
-    public static class Recommendation {
+    public static class Recommendation{
         private String name;
         private String id;
         private String text;

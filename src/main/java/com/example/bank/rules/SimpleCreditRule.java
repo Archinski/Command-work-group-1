@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.Optional;
 
 @Component
-public class SimpleCreditRule implements RecommendationRuleSet {
+public class SimpleCreditRule implements RecommendationRuleSet{
 
     private final TransactionRepository transactionRepository;
 

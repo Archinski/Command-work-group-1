@@ -9,7 +9,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class RecommendationService {
+public class RecommendationService{
 
     private final List<RecommendationRuleSet> rules;
 

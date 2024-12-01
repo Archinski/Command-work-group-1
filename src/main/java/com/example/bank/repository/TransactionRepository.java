@@ -12,7 +12,7 @@ public class TransactionRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public boolean usesProductType(String userId, String productType) {
+    public boolean usesProductType(String userId, String productType){
         String sql = """
                 SELECT COUNT(*)
                 FROM transactions t

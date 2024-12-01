@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.Optional;
 
 @Component
-public class Invest500Rule implements RecommendationRuleSet {
+public class Invest500Rule implements RecommendationRuleSet{
 
     private final TransactionRepository transactionRepository;
 
