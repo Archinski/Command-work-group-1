@@ -20,13 +20,8 @@ public class RecommendationController {
     }
 
     @GetMapping("/recommendation/{user_id}")
-    public RecommendationResponse getRecommendations(@PathVariable("user_id") String userId) {
-        try {
-            UUID.fromString(userId); // Проверка на корректность UUID
-        } catch (IllegalArgumentException ex) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid user ID format");
-        }
-
-        return recommendationService.getRecommendations(userId);
+    public RecommendationResponse getRecommendations(@PathVariable("user_id") UUID userId) {
+        return recommendationService.getRecommendations(String.valueOf(userId));
     }
+
 }
