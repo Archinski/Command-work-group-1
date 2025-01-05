@@ -27,11 +27,14 @@ public class RecommendationResponse {
         private String name;
         private String id;
         private String text;
+        private String title; // Название продукта
+        private String description;
 
         public Recommendation(String name, String id, String text) {
             this.name = name;
             this.id = id;
             this.text = text;
+
         }
 
         public String getName() {
@@ -57,5 +60,22 @@ public class RecommendationResponse {
         public void setText(String text) {
             this.text = text;
         }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public String getDescription() {
+            return description;
+        }
+
+        public void setDescription(String description) {
+            this.description = description;
+        }
     }
+
 }

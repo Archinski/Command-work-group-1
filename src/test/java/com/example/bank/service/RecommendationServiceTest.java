@@ -25,8 +25,6 @@ class RecommendationServiceTest {
                 .thenReturn(Optional.of(new RecommendationResponse.Recommendation("Invest 500", "123", "Description")));
         when(mockRule2.apply("user123"))
                 .thenReturn(Optional.empty());
-
-        recommendationService = new RecommendationService(List.of(mockRule1, mockRule2));
     }
 
     @Test
