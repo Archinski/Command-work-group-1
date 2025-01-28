@@ -32,5 +32,4 @@ public class DynamicRule {
         this.productText = productText;
         this.ruleJson = ruleJson;
     }
-
 }

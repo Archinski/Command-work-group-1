@@ -27,5 +27,6 @@ public class DynamicRuleService {
     public void deleteRule(Long id) {
         dynamicRuleRepository.deleteById(id);
     }
+
 }
 
