@@ -21,4 +21,16 @@ public class DynamicRule {
 
     @Column(name = "rule_json", columnDefinition = "TEXT")
     private String ruleJson;
+
+    public DynamicRule() {
+    }
+
+    public DynamicRule(Long id, String productName, String productId, String productText, String ruleJson) {
+        this.id = id;
+        this.productName = productName;
+        this.productId = productId;
+        this.productText = productText;
+        this.ruleJson = ruleJson;
+    }
+
 }

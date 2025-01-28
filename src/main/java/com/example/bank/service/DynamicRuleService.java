@@ -2,26 +2,30 @@ package com.example.bank.service;
 
 import com.example.bank.jpa.DynamicRuleRepository;
 import com.example.bank.rulesdb.DynamicRule;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class DynamicRuleService {
 
-    @Autowired
-    private DynamicRuleRepository dynamicRuleRepository;
+    private final DynamicRuleRepository dynamicRuleRepository;
+
+    public DynamicRuleService(DynamicRuleRepository dynamicRuleRepository) {
+        this.dynamicRuleRepository = dynamicRuleRepository;
+    }
 
     public DynamicRule createRule(DynamicRule dynamicRule) {
         return dynamicRuleRepository.save(dynamicRule);
     }
 
     public List<DynamicRule> getAllRules() {
-        return dynamicRuleRepository.findAll();
+        return new ArrayList<>(dynamicRuleRepository.findAll());
     }
 
     public void deleteRule(Long id) {
         dynamicRuleRepository.deleteById(id);
     }
 }
+
