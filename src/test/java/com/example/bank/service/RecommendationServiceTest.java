@@ -26,7 +26,7 @@ class RecommendationServiceTest {
         when(mockRule2.apply("user123"))
                 .thenReturn(Optional.empty());
 
-        recommendationService = new RecommendationService(List.of(mockRule1, mockRule2));
+
     }
 
     @Test
