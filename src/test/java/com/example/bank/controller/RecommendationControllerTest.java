@@ -13,6 +13,7 @@ import java.util.List;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(RecommendationController.class)
@@ -27,21 +28,22 @@ class RecommendationControllerTest {
     @BeforeEach
     void setUp() {
         RecommendationResponse response = new RecommendationResponse();
-        response.setUserId("user123");
+        response.setUserId("550e8400-e29b-41d4-a716-446655440000");
         response.setRecommendations(List.of(new RecommendationResponse.Recommendation(
                 "Invest 500",
                 "123",
                 "Description"
         )));
 
-        when(recommendationService.getRecommendations("user123")).thenReturn(response);
+        when(recommendationService.getRecommendations("550e8400-e29b-41d4-a716-446655440000")).thenReturn(response);
     }
 
     @Test
     void getRecommendations_ShouldReturnOkWithRecommendations() throws Exception {
-        mockMvc.perform(get("/api/v1/recommendations/user123"))
+        mockMvc.perform(get("/recommendation/{user_id}", "550e8400-e29b-41d4-a716-446655440000"))
+                .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.userId").value("user123"))
-                .andExpect(jsonPath("$.recommendations[0].title").value("Invest 500"));
+                .andExpect(jsonPath("$.userId").value("550e8400-e29b-41d4-a716-446655440000"))
+                .andExpect(jsonPath("$.recommendations[0].name").value("Invest 500"));
     }
 }

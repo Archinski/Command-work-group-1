@@ -28,7 +28,7 @@ public class TransactionRepository {
                 SELECT COALESCE(SUM(t.amount), 0)
                 FROM transactions t
                 JOIN products p ON t.product_id = p.id
-                WHERE t.user_id = ? AND p.type = ? AND t.transaction_type = 'DEPOSIT'
+                WHERE t.user_id = ? AND p.type = ? AND t.type = 'DEPOSIT'
                 """;
         return jdbcTemplate.queryForObject(sql, Double.class, userId, productType);
     }
@@ -38,7 +38,7 @@ public class TransactionRepository {
                 SELECT COALESCE(SUM(t.amount), 0)
                 FROM transactions t
                 JOIN products p ON t.product_id = p.id
-                WHERE t.user_id = ? AND p.type = ? AND t.transaction_type = 'WITHDRAWAL'
+                WHERE t.user_id = ? AND p.type = ? AND t.type = 'WITHDRAW'
                 """;
         return jdbcTemplate.queryForObject(sql, Double.class, userId, productType);
     }
