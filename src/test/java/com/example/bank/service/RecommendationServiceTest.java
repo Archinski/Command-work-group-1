@@ -26,7 +26,7 @@ class RecommendationServiceTest {
         when(mockRule2.apply("user123"))
                 .thenReturn(Optional.empty());
 
-        recommendationService = new RecommendationService(List.of(mockRule1, mockRule2));
+
     }
 
     @Test
@@ -34,6 +34,7 @@ class RecommendationServiceTest {
         RecommendationResponse response = recommendationService.getRecommendations("user123");
 
         assertEquals(1, response.getRecommendations().size());
-        assertEquals("Invest 500", response.getRecommendations().get(0).getTitle());
+        assertEquals("Invest 500", response.getRecommendations().get(0).getName());
     }
+
 }
