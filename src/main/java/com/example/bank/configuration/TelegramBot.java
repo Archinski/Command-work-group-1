@@ -14,7 +14,6 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.util.List;
-
 @Component
 @Slf4j
 public class TelegramBot extends TelegramLongPollingBot {
